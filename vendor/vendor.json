@@ -27,6 +27,12 @@
 			"revisionTime": "2017-03-28T15:39:02Z"
 		},
 		{
+			"checksumSHA1": "zodCK6AG5/I4EcNPTma0cRFls1k=",
+			"path": "github.com/grafov/bcast",
+			"revision": "15c6a671b975da343a7b04bba6e330e7dc4904b9",
+			"revisionTime": "2017-03-04T07:09:54Z"
+		},
+		{
 			"checksumSHA1": "pjrfmwxpsR/8X6vkhU5uWkXC1oQ=",
 			"path": "github.com/hpcloud/tail",
 			"revision": "faf842bde7ed83bbc3c65a2c454fae39bc29a95f",
