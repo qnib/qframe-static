@@ -8,7 +8,7 @@ import (
 
 	"github.com/codegangsta/cli"
 	"github.com/zpatrick/go-config"
-	"github.com/qnib/qframe/types"
+	"github.com/qnib/qframe-types"
 	"github.com/qnib/qframe-collector-file"
 	"github.com/qnib/qframe-handler-log"
 	"fmt"
