@@ -2,7 +2,7 @@ ticker:
     interval: 5000
 collectors: "file"
 filters: "id"
-handlers: "log"
+handlers: "log,elasticsearch"
 collector:
   file:
     path: "resources/qframe.yml"
@@ -10,3 +10,5 @@ collector:
 handler:
   log:
     inputs: "file"
+  elasticsearch:
+    host: "172.17.0.1"

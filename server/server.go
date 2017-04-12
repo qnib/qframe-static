@@ -5,13 +5,15 @@ import (
 	"os"
 	"os/signal"
 	"time"
+	"fmt"
 
 	"github.com/codegangsta/cli"
 	"github.com/zpatrick/go-config"
 	"github.com/qnib/qframe-types"
-	"github.com/qnib/qframe-collector-file"
-	"github.com/qnib/qframe-handler-log"
-	"fmt"
+	"github.com/qnib/qframe-filter-id/lib"
+	"github.com/qnib/qframe-handler-log/lib"
+	"github.com/qnib/qframe-handler-elasticsearch/lib"
+	"github.com/qnib/qframe-collector-file/lib"
 )
 
 // Run start daemon
@@ -37,11 +39,14 @@ func Run(ctx *cli.Context) {
 	// fetches interrupt and closes
 	signal.Notify(qChan.Done, os.Interrupt)
 	// instanciate handlers,filters,collectors
-	//// Outputs
-	hl := qframe_handler_log.NewPlugin(qChan, *cfg)
+	//// Handlers
+	hl := qframe_handler_log.New(qChan, *cfg, "log")
 	go hl.Run()
+	hes := qframe_handler_elasticsearch.NewElasticsearch(qChan, *cfg, "logstash")
+	go hes.Run()
 	//// Filters
-
+	fi := qframe_filter_id.New(qChan, *cfg, "id")
+	go fi.Run()
 	//// Inputs
 	cf := qframe_collector_file.NewPlugin(qChan, *cfg, "file")
 	go cf.Run()
