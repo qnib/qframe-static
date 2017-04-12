@@ -25,7 +25,7 @@ func main() {
 	app := cli.NewApp()
 	app.Name = "fancy-tool"
 	app.Usage = "This fancy tool is used to improve live."
-	app.Version = "0.1.3"
+	app.Version = "0.2.0"
 	app.Flags = []cli.Flag{
 		cli.StringFlag{
 			Name:  "config",
